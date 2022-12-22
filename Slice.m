@@ -190,11 +190,19 @@ classdef Slice
             % f = sliceShow(opts)
             %
             % OPTIONS
-            % mask
-            % maskTransparency
-            % channels
-            % visualignMarkers
-            % dots
+            % mask: bool
+            %   Whether or not to also show the mask for this slice
+            % maskTransparency: float
+            %   Determines the mask transparency [0-1]
+            % channels: vector of bools
+            %   Which channels to show. Pass a vector of logicals
+            %   for example, [0,1,1] will show the second and third channel
+            % visualignMarkers: bool
+            %   Wether or not to plot the marker positions from visualign
+            % dots: vector of markers
+            %   Wether or not to plot the annotated dots (cells) on each slice.
+            %   Pass a vector of logicals. For example [0,1] will plot dots on the
+            %   second channel and not dots on the first channel.
 
             arguments
                 self
