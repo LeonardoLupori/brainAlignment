@@ -79,18 +79,49 @@ style count fill:#44a1bf
 
 Download and install the required external software from these sources:
 
-- [Zen lite](https://www.zeiss.com/microscopy/int/products/microscope-software/zen-lite.html)
+- [Zen lite](https://www.zeiss.com/microscopy/en/products/software/zeiss-zen.html)
 - [MATLAB](https://it.mathworks.com/products/matlab.html)
 - [Cell-counting neural network](https://github.com/ciampluca/counting_perineuronal_nets)
 - [Ilastik](https://www.ilastik.org/)
 - [QuickNII](https://www.nitrc.org/projects/quicknii)
 - [Visualign](https://www.nitrc.org/projects/visualign/)
 
-## Step 1 - raw files
+## Step 1 - Raw files
+
+The build-up of the mouse folder begins with RGB `.tif` images, in which each imaging channel is stored separately (the pipeline can support up to 3 channels).
+
+Acquisition of microscopy images with most commercially available microscopes typically produces raw files in a proprietary format—for instance, ZEISS microscopes typically produce `.czi` files, while Leica microscopes produce `.lif` files. These files need to be exported to RGB `.tif` format for the later stages of the pipeline.
+
+This can be done in different ways depending on the original extension of the raw files. Here are a few possibilities.
+
+### Export images from `.czi` Files
+
+`.czi` files can be exported using the [Zen Software](https://www.zeiss.com/microscopy/en/products/software/zeiss-zen.html). A free version of the software can be installed on your machine for basic image processing, including image export. The full version that controls the ZEISS microscope and is typically purchased with it can also be used for image export.
+
+To export images in Zen:
+- Go to the `Processing` tab and select the `Image Export` method.
+- Select the TIF extension and the LZW compression.
+- **IMPORTANT**: If your acquisition is not in 8-bit, remember to apply the same display settings to all the files of your experiment. If you have more than one channel, apply consistent channel colors (pure red, green, and blue) across all the files.
+
+### Export images from `.lif` Files
+
+`.lif` files can be exported using the [LAS X Office](https://www.leica-microsystems.com/products/microscope-software/) software. Similar to Zen, a free version is available at the time of writing for basic visualization and image export.
+
+To export images with LAS X:
+- Open your project.
+- Select the regions containing the slices.
+- Right-click and select **Image Export**.
+
+Since LAS X typically exports grayscale single-channel images, a further step may be needed to reconstruct an RGB `.tif` file.
+
+### Export images through ImageJ
+
+Both `.lif` and `.czi` files can be exported to `.tif` using the ImageJ plugin `Bio-Formats`, which is included in the Fiji distribution.  
+This is a convenient option if you do not want to install dedicated microscope software on your machine.  
+A further step may be needed to reconstruct an RGB `.tif` file from the separated grayscale channels.
 
 ## Step 2 - hi-res images
 
-### Export images from .czi files
 
 ## Step 3 - thumbnails
 
@@ -118,4 +149,4 @@ Download and install the required external software from these sources:
 
 ---
 
-*Leonardo Lupori* - 2022
+*Leonardo Lupori and Valentino Totaro*

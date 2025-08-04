@@ -69,4 +69,4 @@ If the image is a **multichannel** image, export an RGB version, as long as each
 
 ---
 
-*Leonardo Lupori* - 2022
+*Leonardo Lupori and Valentino Totaro*
