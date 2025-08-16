@@ -92,7 +92,12 @@ The build-up of the mouse folder begins with RGB `.tif` images, in which each im
 
 Acquisition of microscopy images with most commercially available microscopes typically produces raw files in a proprietary format—for instance, ZEISS microscopes typically produce `.czi` files, while Leica microscopes produce `.lif` files. These files need to be exported to RGB `.tif` format for the later stages of the pipeline.
 
+[!NOTE]
+This pipeline was originally designed for a workflow starting from `.czi` files. For this type of files we found that exporting the data as RGB images is the most convenient strategy. Other microscopes and software might allow to directly export imaging channels as separate grayscale images (see [Step 2 - hi-res images](#step-2---hi-res-images)). While limited code changes could allow to use these type of images as starting point, such changes have not yet being implemented at the time of writing.
+
 This can be done in different ways depending on the original extension of the raw files. Here are a few possibilities.
+
+
 
 ### Export images from `.czi` Files
 
@@ -101,7 +106,8 @@ This can be done in different ways depending on the original extension of the ra
 To export images in Zen:
 - Go to the `Processing` tab and select the `Image Export` method.
 - Select the TIF extension and the LZW compression.
-- **IMPORTANT**: If your acquisition is not in 8-bit, remember to apply the same display settings to all the files of your experiment. If you have more than one channel, apply consistent channel colors (pure red, green, and blue) across all the files.
+
+[!IMPORTANT] If your acquisition is not in 8-bit, remember to apply the same display settings to all the files of your experiment. If you have more than one channel, apply consistent channel colors (pure red, green, and blue) across all the files. When exporting images from the file, this will allow to produce separate grayscale image for each channel.
 
 ### Export images from `.lif` Files
 
@@ -121,7 +127,6 @@ This is a convenient option if you do not want to install dedicated microscope s
 A further step may be needed to reconstruct an RGB `.tif` file from the separated grayscale channels.
 
 ## Step 2 - hi-res images
-
 
 ## Step 3 - thumbnails
 
